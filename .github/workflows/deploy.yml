@@ -9,6 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: deploy
       - uses: actions/@v2
       # Setup key
       - run: set -eu
