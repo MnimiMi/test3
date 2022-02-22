@@ -16,4 +16,4 @@ jobs:
       - run: echo "${{ secrets.SECRET_KEY }}" > "$HOME/.ssh/SECRET_KEY"
       - run: chmod 600 "$HOME/.ssh/SECRET_KEY"
       # Deploy
-      - run: cd test_for_mirohost&&rsync -e "ssh -p 20022 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . /var/www/baldcatdev/mnimi.baldcatdev.com/test_for_mirohost
+      - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . /var/www/baldcatdev/mnimi.baldcatdev.com/test_for_mirohost
