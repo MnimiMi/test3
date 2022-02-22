@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: deploy
-      - uses: test_for_mirohost/.github/workflows/deploy.yml
+      - uses: actions/checkout@v2
       # Setup key
       env: # Or as an environment variable
         super: ${{ secrets.SECRET_KEY }}
