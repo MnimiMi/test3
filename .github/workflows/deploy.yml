@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: deploy
-      - uses: actions/@v2
+      - uses: test_for_mirohost/.github/workflows/deploy.yml
       # Setup key
-      - run: set -eu
-      - run: mkdir "$HOME/.ssh"
-      - run: echo "${{ secrets.SECRET_KEY }}" > "$HOME/.ssh/SECRET_KEY"
-      - run: chmod 600 "$HOME/.ssh/SECRET_KEY"
+      env: # Or as an environment variable
+        super: ${{ secrets.SECRET_KEY }}
+
       # Deploy
       - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . /var/www/baldcatdev/mnimi.baldcatdev.com/test_for_mirohost
