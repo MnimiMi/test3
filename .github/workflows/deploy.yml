@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: deploy
-      - uses: actions/checkout@v2
         env:
           super: ${{ secrets.SECRET_KEY }}
 
